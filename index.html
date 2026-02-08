@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carta Para Stefa 💖</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+body{
+min-height:100vh;
+background:linear-gradient(135deg,#ff9a9e,#fad0c4,#fbc2eb,#ffdde1);
+background-size:400% 400%;
+animation:fondo 12s ease infinite;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+}
+
+@keyframes fondo{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.estrellas span{
+position:absolute;width:2px;height:2px;background:white;border-radius:50%;
+animation:estrella linear infinite;opacity:.8;
+}
+@keyframes estrella{
+from{transform:translateY(110vh);}
+to{transform:translateY(-10vh);opacity:0;}
+}
+
+.contenedor{
+width:95%;max-width:430px;background:white;border-radius:25px;
+padding:18px;box-shadow:0 25px 45px rgba(0,0,0,.35);
+animation:entrada 1s ease;text-align:center;z-index:2;
+}
+
+button{
+margin-top:10px;padding:10px 22px;border:none;border-radius:20px;
+background:#ff4d6d;color:white;font-size:14px;cursor:pointer;
+transition:.3s;
+}
+button:hover{transform:scale(1.1);}
+
+.pregunta{text-align:left;margin:12px 0;font-size:14px;}
+textarea{width:100%;border-radius:10px;padding:8px;}
+
+.sobre{
+width:100%;height:260px;background:linear-gradient(135deg,#ff4d6d,#ff9fb2);
+border-radius:25px;margin-top:15px;position:relative;cursor:pointer;
+box-shadow:0 20px 40px rgba(0,0,0,.35);
+animation:latido 2.5s infinite;display:none;
+}
+
+@keyframes latido{
+0%,100%{transform:scale(1);}
+50%{transform:scale(1.05);}
+}
+
+.tapa{
+position:absolute;inset:0;background:linear-gradient(135deg,#ff6f91,#ffc2d1);
+clip-path:polygon(0 0,50% 55%,100% 0,100% 100%,0 100%);
+transform-origin:top;transition:1s;border-radius:25px;
+}
+.sobre.abierto .tapa{transform:rotateX(180deg);}
+
+.carta{
+position:absolute;
+top:12px;
+left:12px;
+width:calc(100% - 24px);
+height:230px;
+
+/* NUEVO FONDO ROMÁNTICO */
+background:
+linear-gradient(135deg, #fff0f5, #ffe4ec, #ffffff),
+radial-gradient(circle at top right, rgba(255,105,180,.25), transparent 60%);
+background-blend-mode:screen;
+
+border-radius:20px;
+padding:14px;
+opacity:0;
+transition:1s;
+overflow:auto;
+
+/* EFECTO ELEGANTE */
+box-shadow:
+0 0 25px rgba(255,105,180,.45),
+inset 0 0 20px rgba(255,255,255,.8);
+
+animation:flotarCarta 6s ease-in-out infinite;
+}
+
+
+.sobre.abierto .carta{
+top:-180px;
+opacity:1;
+}
+
+.foto{
+width:100%;
+border-radius:18px;
+margin:10px 0;
+box-shadow:0 12px 28px rgba(255,0,90,.45);
+animation:zoomFoto 6s ease-in-out infinite;
+}
+
+.foto{
+  display:block;
+  max-width:100%;
+  height:auto;
+  opacity:1;
+  z-index:20;
+  position:relative;
+}
+
+
+@keyframes zoomFoto{
+0%,100%{transform:scale(1);}
+50%{transform:scale(1.08);}
+}
+
+.corazon{position:absolute;animation:flotar linear infinite;}
+@keyframes flotar{
+from{transform:translateY(110vh) scale(.5);}
+to{transform:translateY(-15vh) scale(1.4);opacity:0;}
+}
+
+
+@keyframes flotarCarta{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-8px);}
+}
+
+#texto{
+font-size:14px;
+line-height:1.6;
+color:#b1004b;
+text-shadow:0 0 6px rgba(255,105,180,.35);
+animation:aparecerTexto 2s ease forwards;
+}
+
+@keyframes aparecerTexto{
+from{opacity:0;filter:blur(4px);}
+to{opacity:1;filter:blur(0);}
+}
+
+/* Partículas dentro de la carta */
+.carta::after{
+content:"✨ 💖 ✨ 💕 ✨";
+position:absolute;
+top:-10px;
+left:0;
+width:100%;
+text-align:center;
+font-size:18px;
+opacity:.6;
+animation:brillos 4s linear infinite;
+}
+
+@keyframes brillos{
+0%{opacity:.2;}
+50%{opacity:.7;}
+100%{opacity:.2;}
+}
+
+
+.abrazo{
+position:fixed;inset:0;display:none;justify-content:center;
+align-items:center;font-size:34px;background:rgba(255,105,135,.9);
+color:white;z-index:999;text-align:center;padding:20px;
+}
+
+.juego{
+position:fixed;inset:0;background:rgba(0,0,0,.7);
+display:none;justify-content:center;align-items:center;
+z-index:1000;flex-direction:column;color:white;
+}
+#corazonJuego{
+font-size:80px;cursor:pointer;animation:mover 2s infinite alternate;
+}
+@keyframes mover{
+from{transform:translate(-120px,-80px);}
+to{transform:translate(120px,120px);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="estrellas" id="estrellas"></div>
+<div class="abrazo" id="abrazo">🤗 Te quiero mucho mucho Stefa 🤗</div>
+
+<div class="juego" id="juego">
+<h2>Atrapa el corazón ❤️</h2>
+<div id="corazonJuego">❤️</div>
+</div>
+
+<div class="contenedor">
+
+<h2>💖 Para Stefa 💖</h2>
+<p>Antes de leer responda con cariño 🥰</p>
+
+<div id="formulario">
+
+<div class="pregunta">
+<p>1. ¿Qué sientes cuando hablas conmigo?</p>
+<label><input type="radio" name="p1" value="Me hace feliz"> Me hace feliz 💕</label><br>
+<label><input type="radio" name="p1" value="Me gusta mucho"> Me gusta mucho 😌</label><br>
+<label><input type="radio" name="p1" value="Me da paz"> Me da paz 🥰</label>
+</div>
+
+<div class="pregunta">
+<p>2. ¿Te agrada que esté en tu vida?</p>
+<label><input type="radio" name="p2" value="Sí bastante"> Sí bastante 💖</label><br>
+<label><input type="radio" name="p2" value="Me gusta la idea"> Me gusta la idea 😏</label><br>
+<label><input type="radio" name="p2" value="Claro que sí"> Claro que sí 💘</label>
+</div>
+
+<div class="pregunta">
+<p>3. ¿Qué piensas cuando te escribo?</p>
+<label><input type="radio" name="p3" value="Sonrío"> Sonrío 😊</label><br>
+<label><input type="radio" name="p3" value="Me gusta"> Me gusta 💕</label><br>
+<label><input type="radio" name="p3" value="Me emociona"> Me emociona 😍</label>
+</div>
+
+<div class="pregunta">
+<p>4. ¿Te gustaría seguir conociéndome?</p>
+<label><input type="radio" name="p4" value="Sí mucho"> Sí mucho 💖</label><br>
+<label><input type="radio" name="p4" value="Claro"> Claro 😌</label><br>
+<label><input type="radio" name="p4" value="Me encantaría"> Me encantaría 💘</label>
+</div>
+
+<div class="pregunta">
+<p>5. ¿Qué soy yo para usted?</p>
+<textarea id="p5"></textarea>
+</div>
+
+<button onclick="enviar()">Enviar 💌</button>
+</div>
+
+<div class="sobre" onclick="mostrarJuego()">
+<div class="tapa"></div>
+<div class="carta">
+<b>Para:</b> Stefa 💕<br>
+<b>De:</b> Alguien que la quiere 😌
+
+<img src="stefani.png" class="foto">
+
+<p id="texto"></p>
+
+<button onclick="cerrarSobre(event)">Cerrar 💗</button>
+</div>
+</div>
+
+</div>
+
+<script>
+let abierto=false,i=0,respuestas={},yaEnvio=false;
+const mensaje =
+"Stefa, esta carta es para usted.\n\nHace años nos conocemos, y en su momento ambos sentimos una conexión bonita. Con el tiempo dejamos de hablar, pero ahora que volvimos a hacerlo, me di cuenta de que usted me atrae y me gusta, y no es por su cuerpo, sino por quién es.\n\nUsted es una niña juiciosa, con un carácter fuerte que admiro mucho, y sin necesidad de llamar la atención con lo físico. Me gusta hablar con usted y la forma tan auténtica que tiene de ser.\n\nSé que no soy una persona con el físico que muchas mujeres buscan, pero sí soy alguien de buenos sentimientos, sentimientos que usted ya conoció hace años. Mi corazón ha pasado por cosas duras y está un poco frío y roto, pero aun así, con usted me nace la intención de seguir hablando y de intentarlo, porque mis intenciones son buenas.\n\nQuiero aportar cosas positivas a su vida, estar ahí, apoyarla. Estas palabras las tenía guardadas desde hace tiempo. Algo muy bonito que recuerdo de usted es cuando me dijo “feliz año”, y por eso hoy le digo que la quiero mucho, de querer bonito, con respeto y sinceridad.\n\nLe mando un abrazo, un beso en la frente, y me gustaría que algún día me cuente sus planes. Termino esta carta con un poco de miedo al rechazo, pero como dice la frase: el que no arriesga, no gana, y yo hoy me arriesgo por usted.\n\nAtentamente,\nSebastián";
+
+
+
+for(let s=0;s<80;s++){
+let star=document.createElement("span");
+star.style.left=Math.random()*100+"vw";
+star.style.animationDuration=Math.random()*6+4+"s";
+document.getElementById("estrellas").appendChild(star);
+}
+
+function enviar(){
+const p1=document.querySelector('input[name="p1"]:checked');
+const p2=document.querySelector('input[name="p2"]:checked');
+const p3=document.querySelector('input[name="p3"]:checked');
+const p4=document.querySelector('input[name="p4"]:checked');
+const p5=document.getElementById("p5").value;
+
+if(!p1||!p2||!p3||!p4||p5===""){alert("Completa todo 😊");return;}
+
+respuestas={p1:p1.value,p2:p2.value,p3:p3.value,p4:p4.value,p5:p5};
+document.getElementById("formulario").innerHTML="<h3>Toca el sobre 💌</h3>";
+document.querySelector(".sobre").style.display="block";
+}
+
+function mostrarJuego(){
+document.getElementById("juego").style.display="flex";
+}
+
+corazonJuego.onclick=()=>{
+document.getElementById("juego").style.display="none";
+abrirSobre();
+}
+
+function abrirSobre(){
+i=0;
+texto.innerHTML="";
+document.querySelector(".sobre").classList.add("abierto");
+escribir();
+setInterval(crearCorazon,300);
+abierto=true;
+}
+
+function escribir(){
+if(i<mensaje.length){
+texto.innerHTML+=mensaje.charAt(i);
+i++;
+setTimeout(escribir,35);
+}
+}
+
+function cerrarSobre(e){
+e.stopPropagation();
+if(!yaEnvio){ enviarWhats(); yaEnvio=true; }
+document.querySelector(".sobre").classList.remove("abierto");
+abierto=false;
+abrazo.style.display="flex";
+setTimeout(()=>abrazo.style.display="none",2500);
+}
+
+function crearCorazon(){
+const c=document.createElement("div");
+c.className="corazon";
+c.innerHTML=Math.random()>.5?"❤️":"💋";
+c.style.left=Math.random()*100+"vw";
+c.style.fontSize=Math.random()*30+20+"px";
+c.style.animationDuration=Math.random()*3+4+"s";
+document.body.appendChild(c);
+setTimeout(()=>c.remove(),7000);
+}
+
+function enviarWhats(){
+let textoMsg =
+"💌 Respuestas Stefa 💌\n\n"+
+"1️⃣ "+respuestas.p1+"\n"+
+"2️⃣ "+respuestas.p2+"\n"+
+"3️⃣ "+respuestas.p3+"\n"+
+"4️⃣ "+respuestas.p4+"\n"+
+"5️⃣ "+respuestas.p5;
+
+window.open("https://wa.me/573124634336?text="+encodeURIComponent(textoMsg));
+}
+</script>
+
+</body>
+</html>
+
+
+
+
